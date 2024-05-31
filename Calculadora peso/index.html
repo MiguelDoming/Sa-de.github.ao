@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #18181b;
+        }
+
+        #Afri{
+            color: white;
+            height: 500px;
+            align-items: center;
+            text-align: center;
+            font-size: 10px;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #conteiner{
+            display: flex;
+            align-items: center;
+            gap: 3.5rem;
+        }
+
+        #calculadora{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 2rem;
+            color: #f8fafc;
+            background-color: #262626;
+            border-radius: 8px;
+        }
+        #form{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem; 
+        }
+        #title{
+          font-size: 2.25rem;
+          position: relative;
+        }
+        #title::after{
+          position: absolute;
+          content: "";
+          background-color: #16a34a;
+          width: 8rem;
+          height: 3px;
+          bottom: 0;
+          left: 0;
+          border-radius: 3px;
+        }
+        .unput-box label{
+           font-size: 1.1rem; 
+           color: #cbd5e1;
+           font-weight: 500;
+        }
+        .unput-field{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          background-color: #16a34a;
+            padding: 0.3rem;
+            border-radius: 3px;
+            margin-top: 3px;
+        }
+        .unput-field span,
+        .unput-field i{
+            color: cbd5e1;
+            font-size: 1.3rem;
+            padding: 0.6rem 1rem;
+        }
+        .unput-field input{
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            font-size: 1.3rem;
+            color: white;
+            padding: 0 0.5rem;
+        }
+        .unput-field input::-webkit-outer-spin-button,
+        .unput-field input::-webkit-inner-spin-button{
+            appearance: none;
+        }
+        .unput-field input:focus{
+             outline: none;
+        }
+        #botao{
+            border: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+            background-color:  #16a34a;;
+            color: #f8fafc;
+            padding: 0.5rem 0;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #result{
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            border-top: 1px solid black;
+            padding: 0.75rem 0;
+        }
+        #bmi{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-size: 2.25rem;
+        }
+        #bmi span:last-child{
+        font-size: 0.875rem;
+        color: #cbd5e1;
+        }
+        #description{
+            width: 15.5rem;
+        }
+        #more_info{
+            text-align: center;
+            border-top: 1px solid black ;
+            padding-top: 1.5rem;
+   
+        }
+        #more_info a{
+            color: #16a34a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.5s;
+            border: none;
+        }
+        #more_info a :hover{
+            color: #147feb;
+        }
+        .hidden{
+            display: none;
+        }
+        .normal{
+            color: #16a34a; 
+        }
+        .attention{
+            color: #dc2626;
+        }
+        @media screen and (max-width: 1024) {
+            #img{
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+         #conteiner{
+            width: 100%;
+            width: 100%;
+        }
+        }
+        #calculadora{
+          width: 100%; 
+          height: 100%; 
+          border-radius: 0;
+          justify-content: center;
+        }
+
+    </style>
+    <title>IMC</title>  
+</head>
+<body>
+    <nav id="Afri">
+        <h1>Feita por: <br>Africano Manuel</h1>
+    </nav><br>
+    <main id="conteiner">
+        <section id="img" >
+            <img src="" alt="">
+        </section>
+        <section id="calculadora">
+           <form id="form">
+            <h1 id="title">
+               calculadora de peso 
+            </h1>
+            <div class="imput-box">
+                <label for="weight">
+                    peso em kg
+                </label>
+                <div class="input-field">
+            
+                   <input type="namber" id="weight" required>
+                   <span>
+                    kg
+                   </span>
+                </div>
+            </div>
+            <div class="imput-box">
+                <label for="height">
+                    Altura em metros
+                </label>
+                <div class="input-field">
+                
+                   <input type="namber" id="height" required>
+                   <span>
+                    m
+                   </span>
+                </div>
+            </div>
+            <button id="botao">
+                calcular
+            </button>
+           </form>
+            <div id="infos" class="hidden">
+                <div id="result">
+                    <div id="bmi">
+                        <span id="value"></span>
+                        <span>Seu IMC</span>
+                    </div>
+                    <div id="description">
+                        <span></span>
+                    </div>
+                </div>
+                <div id="more_info">
+                    <a href=""> mais informações sobre IMC</a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+       const form = document.getElementById('form');
+       form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const weight = document.getElementById('weight').value;
+        const height = document.getElementById('height').value;
+
+        const bmi = (weight/ (height* height)).toFixed(2);
+
+        const value = document.getElementById('value');
+        let description = '';
+
+        value.classList.add('attention');
+
+        document.getElementById('infos').classList.remove('hidden');
+
+        if (bmi <18.5){
+            description = 'Cuidado! você está abaixo do peso!'
+        
+        } else if(bmi >= 18.5 && bmi<= 25 ) {
+            description = "Você está no peso ideal!"
+            value.classList.remove('attention');
+            value.classList.add('normal');
+        
+        } else if (bmi > 25 && bmi <= 30 ) {
+            description = "Cuidado! você está com sobrepeso!";
+        
+        } else if (bmi > 35 && bmi <= 40) {
+            description = "Cuidado! você está com obesidade moderada!";
+        
+        } else if (bmi > 30 && bmi <= 35 ) {
+            description = "Cuidado! você está com obesidade severa!";
+        
+        } else {
+            description = "Cuidado! você está com obesidade morbida !";
+        
+        }
+
+        value.textContent = bmi;
+        document.getElementById('description').textContent = description;
+
+
+
+       });
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
